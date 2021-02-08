@@ -45,3 +45,22 @@ function generatecoinchange(cents){
     console.log(`Quarters: ${quarter}, Dimes: ${dime}, Nickels: ${nickel}, Pennies: ${penny}`)
 };
 generatecoinchange(91);
+
+function getRandomInt() {
+    min = Math.ceil(1);
+    max = Math.floor(7);
+    var die1 = Math.floor(Math.random() * (max - min) + min);
+    var die2 = Math.floor(Math.random() * (max - min) + min);
+    var roll = 0;
+    while (die1 != die2){
+        roll++;
+        die1 = Math.floor(Math.random() * (max - min) + min);
+        die2 = Math.floor(Math.random() * (max - min) + min);
+    }
+    if (die1 == die2) {
+        roll++;
+        return [die1, die2, roll];
+    }
+  }
+var answer = getRandomInt();
+console.log(answer);

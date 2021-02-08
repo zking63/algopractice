@@ -64,3 +64,14 @@ function getRandomInt() {
   }
 var answer = getRandomInt();
 console.log(answer);
+
+function sumdigits(num) {
+    sum = 0;
+    while (num) {
+        sum += num % 10;
+        num = Math.trunc(num/10);
+    }
+    return sum;
+}
+var sum2 = sumdigits(1021000000007); 
+console.log(sum2);

@@ -21,30 +21,27 @@ var answer2 = factorial(5);
 console.log(answer2);
 
 function generatecoinchange(cents){
-    penny = 1;
-    nickle = 5;
-    dime = 10;
-    quarter = 25;
-    for (var p = 0; p < cents +1; p++){
-        if(cents % quarter == 0){
-            final = cents/quarter
-            return final;
-        }
-        else{
-            final =  Math.trunc(cents/quarter)
-                if(final % dime == 0){
-                    final = final + (final/dime)
-                    return final;
-                }
-                else{
-                    final = final + Math.trunc(final/dime)
-                    return final;
-                }
-            }
-        }
+    penny = 0;
+    nickel = 0;
+    dime = 0;
+    quarter = 0;
+    remainingChange = cents;
+    while (remainingChange >= 25) {
+        remainingChange -= 25;
+        quarter++;
     }
-    return final;
-}
-
-var answer3 = generatecoinchange(35);
-console.log(answer3);
+    while (remainingChange >= 10) {
+        remainingChange -= 10;
+        dime++;
+    }
+    while (remainingChange >= 5) {
+        remainingChange -= 5;
+        nickel++;
+    }
+    while (remainingChange > 0) {
+        remainingChange -= 1;
+        penny++;
+    }
+    console.log(`Quarters: ${quarter}, Dimes: ${dime}, Nickels: ${nickel}, Pennies: ${penny}`)
+};
+generatecoinchange(91);
